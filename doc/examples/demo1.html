@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Image Dropdown</title>
+    <link rel="stylesheet" type="text/css" href="msdropdown/dd.css"/>
+    <script type="text/javascript" src="msdropdown/js/jquery-1.3.2.min.js"></script>
+    <script type="text/javascript" src="msdropdown/js/jquery.dd.js"></script>
+</head>
+<body>
+
+<select onChange="showValue($('#websites3 option:selected').text(), this.value);" name="websites3" id="websites3"
+        style="width:260px;">
+    <option name="one" value="msDropDown" selected="selected" title="images/icon-ok.gif">msDropDown</option>
+    <option name="two" value="PrototypeCombobox" title="images/icon-ok.gif">Prototype Combobox</option>
+    <option value="jQuery Tabs" title="images/icon-ok.gif">jQuery Tabs</option>
+    <option value="Common Accordion" title="images/icon-ok.gif">Common Accordion</option>
+</select>
+
+
+</form>
+<script language="javascript" type="text/javascript">
+
+    function showValue(arg, arg2) {
+        alert("calling show me: arg1 " + arg + " arg2 " + arg2);
+        // var s = (arg2 == undefined) ? '' : "<br /><font color='darkgreen'>value:</font> " + arg2;
+        // $("#selectedvalue").html("<font color='darkgreen'>label:</font> " + arg + s);
+    }
+
+    //onChange="showValue($('#websites3 option:selected').text(), this.value);output('onchange', this);"
+
+    /*    $("#websites3").bind("change", function() {
+     // showvalue($(this).val());
+     showValue($('#websites3 option:selected').text(), this.value)
+     });*/
+
+
+    $(document).ready(function() {
+
+        try {
+            dd3 = $('#websites3').msDropDown().data("dd");
+            var opt = dd3.get('length');
+            //dd3 = dd3.add({text:"lucky", value:"luckyval", title:'images/icon-ok.gif'}, opt);
+            $("#open3").click(function() {
+                dd3.open();
+            });
+            $("#close3").click(function() {
+                dd3.close();
+            });
+            //dd3.addMyEvent("onOpen", showvalue);
+            //dd3.addMyEvent("onClose", showvalue);
+            // dd3.addMyEvent("mouseover", showvalue);
+            //dd3.disabled(true);
+            //items  = document.getElementById("ComOS2").item(1);
+            items = dd3.item(1);
+
+            var ver = dd3.get('version');
+            $("#ver").html(ver);
+
+            //alert(items)
+        } catch(e) {
+            alert("Error: " + e.message);
+        }
+        //alert(dd3.form().name);
+        //document.getElementById("websites1").options[0] = new Option("Lucky", "_lucky");
+
+    })
+
+
+</script>
+
+
+</body>
+</html>
