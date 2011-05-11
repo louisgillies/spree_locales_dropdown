@@ -2,7 +2,7 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_locales_dropdown'
   s.version     = '1.0.0'
-  s.summary     = 'Add gem summary here'
+  s.summary     = 'Forked as original version had a very specific spree_core gem dependency'
   #s.description = 'Add (optional) gem description here'
   s.required_ruby_version = '>= 1.8.7'
 
@@ -16,6 +16,4 @@ Gem::Specification.new do |s|
   s.requirements << 'none'
 
   s.has_rdoc = true
-
-  s.add_dependency('spree_core', '>= 0.50.99')
 end
